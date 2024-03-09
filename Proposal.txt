@@ -1,0 +1,21 @@
+Predicting The Class of a Given Raisin Observation By Considering Area, Major Axis Lengths, and Perimeter as Predictors 
+
+Intro
+Raisins are a common snack distributed globally which contain high concentrations of carbohydrates, and beneficial nutrients such as Iron, Potassium, fiber, and antioxidants. Cinar et al., (2020) conducted an analysis of two common classes of raisins produced using grapes grown in Turkey with the intention of developing a machine vision system which could use multiple predictors to differentiate between Besni and Keciman raisin varieties. The study used a morphological interface consisting of seven different features to collect data on the varieties. The program uses imaging, which takes measurements of each raisin based on the number of pixels it takes up. We will be using this previously collected data from Cinar et al., (2020) to predict the class of an observed raisin based on predictors including the raisins area, major axis lengths, convex area, and perimeter.
+
+Tidy Data
+A data frame can be considered tidy when it meets the following requirements 
+each row is a single observation,
+each column is a single variable, and
+each value is a single cell (i.e., its entry in the data frame is not shared with another value).
+Given that the Raisin dataset already meets these conditions, additional steps to tidy the data are not required. 
+
+Method
+We will conduct a data analysis using the K-Nearest algorithm to perform a binary classification. We will split our dataset into a training set, validation set, and testing set using the initial_split function from the tidymodels package. We will use columns including Area (the number of pixels within the raisins boundary), MajorAxisLength (the length of the main axis, which is the longest line that can be drawn on the raisin grain), ConvexArea (the number of pixels within the smallest convex shell of the raisin), and perimeter (measures the environment by calculating the distance between the boundaries of the raisin grain and the pixels around it) as our predictors, due to their high values of standard deviation. Due to the large range of values in each column, an important step will be to standardize the data to give each value  the same weight. Results will be visualized using histograms in order to observe the relationships between various predictors and raisin class. These visualizations will also be helpful to understand distances between observations during the classification process. 
+
+Expected outcomes and significance
+We expect to find that the raisins with the largest area, convex area, and major axis lengths will be of the Besni variety. These findings could improve the quality of raisin class evaluation and aid in the development of automated raisin evaluation systems, which can be more accurate and significantly more efficient than evaluating raisins by hand (Cinar et al., 2020). Reducing the time and financial requirements of raisin evaluation would have financial benefits for raisin producers, and economic benefits for countries with large exports of raisin products. These findings also raise questions about other measurable features that may be important in assessing raisin quality, and about how improved class evaluation could be used to maximize the production of raisins with preferable features. 
+
+References
+    Çinar, İ̇., Koklu, M., & Tasdemir, S. (2023). Raisin. UCI Machine Learning Repository. https://doi.org/10.24432/C5660T.
+    Cinar, I., Koklu, M., & Tasdemir, S. (2020). Kuru Üzüm Tanelerinin Makine Görüşü ve Yapay Zeka Yöntemleri Kullanılarak Sınıflandırılması. Gazi Journal of Engineering Sciences.
